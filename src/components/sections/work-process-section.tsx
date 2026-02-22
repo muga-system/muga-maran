@@ -6,30 +6,38 @@ export function WorkProcessSection() {
   const icons = ["plan", "shield", "field", "time"] as const;
 
   return (
-    <section id="proceso" className="py-12 sm:py-16">
+    <section id="proceso" className="py-10 sm:py-12">
       <Container>
-        <div className="mb-6">
-          <p className="signal-label">Proceso operativo</p>
-          <h2 className="mt-4 text-4xl font-black uppercase leading-[0.9] text-foreground sm:text-5xl">
-            Método en
-            <br />
-            cuatro pasos.
-          </h2>
-        </div>
-
-        <div className="border-2 border-foreground bg-card">
-          {processStages.map((stage, index) => (
-            <article key={stage.id} className="grid gap-4 border-b-2 border-foreground p-5 last:border-b-0 md:grid-cols-[120px_auto_1fr] md:items-start">
-              <p className="text-3xl font-black text-foreground">{stage.id}</p>
-              <IconBadge name={icons[index]} className="h-12 w-12" />
-
+        <div className="muga-slide p-4 sm:p-6">
+          <div className="relative z-10">
+            <div className="mb-5 flex items-end justify-between gap-4">
               <div>
-                <h3 className="text-2xl font-black uppercase leading-tight text-foreground">{stage.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-foreground/82">{stage.objective}</p>
-                <p className="mt-3 text-xs font-black uppercase tracking-[0.08em] text-brand">{stage.actions[0]}</p>
+                <p className="signal-label">Proceso</p>
+                <h2 className="muga-scifi-title mt-4 text-4xl text-foreground sm:text-5xl">Cómo trabajamos</h2>
               </div>
-            </article>
-          ))}
+            </div>
+
+            <div className="relative">
+              <div className="absolute left-0 right-0 top-6 hidden h-px bg-foreground/30 md:block" aria-hidden />
+              <div className="grid gap-3 md:grid-cols-4">
+                {processStages.map((stage, index) => (
+                  <article key={stage.id} className="relative">
+                    <div className="mb-3 flex items-center gap-3">
+                      <div className="inline-flex h-11 w-11 items-center justify-center border border-foreground bg-accent text-brandForeground">
+                        <span className="text-xs font-black tracking-[0.12em]">{stage.id}</span>
+                      </div>
+                      <IconBadge name={icons[index]} className="h-11 w-11" />
+                    </div>
+
+                    <div className="muga-panel p-4">
+                      <h3 className="text-sm font-black uppercase leading-tight text-foreground">{stage.title}</h3>
+                      <p className="mt-2 text-xs leading-relaxed text-foreground/74">{stage.objective}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </Container>
     </section>

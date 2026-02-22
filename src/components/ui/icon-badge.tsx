@@ -24,12 +24,12 @@ export function IconBadge({ name, className }: IconBadgeProps) {
   return (
     <span
       className={cn(
-        "inline-flex h-11 w-11 items-center justify-center border-2 border-foreground bg-accent text-foreground",
+        "inline-flex h-11 w-11 items-center justify-center border border-foreground/55 bg-surface/70 text-foreground backdrop-blur-[2px]",
         className
       )}
       aria-hidden
     >
-      <Icon className="h-5 w-5" strokeWidth={2.1} />
+      <Icon className="h-5 w-5" strokeWidth={2} />
     </span>
   );
 }

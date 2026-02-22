@@ -20,6 +20,11 @@
   box-sizing: border-box;
 }
 
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -41,9 +46,10 @@ body {
   color: hsl(var(--color-foreground));
   font-family: "IBM Plex Sans", "Manrope", "Segoe UI", sans-serif;
   background-image:
-    linear-gradient(to right, hsl(var(--color-stroke) / 0.07) 1px, transparent 1px),
+    radial-gradient(circle at 50% 18%, hsl(var(--color-accent) / 0.08), transparent 46%),
+    linear-gradient(to right, hsl(var(--color-stroke) / 0.06) 1px, transparent 1px),
     linear-gradient(to bottom, hsl(var(--color-stroke) / 0.04) 1px, transparent 1px);
-  background-size: 36px 36px;
+  background-size: auto, 42px 42px, 42px 42px;
 }
 
 h1,
@@ -63,46 +69,67 @@ a {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid hsl(var(--color-accent));
-  outline-offset: 2px;
+  outline: 2px solid hsl(var(--color-foreground));
+  outline-offset: 3px;
 }
 
 ::selection {
-  background: hsl(var(--color-accent) / 0.36);
+  background: hsl(var(--color-accent) / 0.35);
+  color: hsl(var(--color-foreground));
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center border-2 border-foreground bg-accent px-6 py-3 text-sm font-black uppercase tracking-[0.08em] text-foreground transition hover:bg-foreground hover:text-brandForeground;
-    box-shadow: 4px 4px 0 0 hsl(var(--color-brand));
+    @apply inline-flex items-center justify-center border border-foreground bg-accent px-6 py-3 text-sm font-black uppercase tracking-[0.1em] text-foreground transition hover:bg-foreground hover:text-brandForeground;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center border-2 border-foreground bg-surface px-6 py-3 text-sm font-black uppercase tracking-[0.08em] text-foreground transition hover:bg-card;
-    box-shadow: 4px 4px 0 0 hsl(var(--color-stroke) / 0.35);
+    @apply inline-flex items-center justify-center border border-foreground bg-surface px-6 py-3 text-sm font-black uppercase tracking-[0.1em] text-foreground transition hover:bg-card;
   }
 
   .block-panel {
-    @apply relative border-2 border-foreground bg-card;
-  }
-
-  .block-panel::before {
-    content: "";
-    position: absolute;
-    inset: -2px -2px auto -2px;
-    height: 5px;
-    background: hsl(var(--color-brand));
+    @apply relative border border-foreground/60 bg-card;
   }
 
   .terrain-pill {
-    @apply inline-flex items-center border-2 border-foreground bg-accent px-3 py-1 text-xs font-black uppercase tracking-[0.08em] text-foreground;
+    @apply inline-flex items-center border border-foreground/80 bg-transparent px-3 py-1 text-xs font-black uppercase tracking-[0.12em] text-foreground;
   }
 
   .terrain-chip {
-    @apply border border-foreground/55 bg-surface px-3 py-1 text-xs font-semibold uppercase tracking-[0.06em] text-foreground;
+    @apply inline-flex items-center border border-foreground/60 bg-surface px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-foreground;
   }
 
   .signal-label {
-    @apply inline-flex border-2 border-foreground bg-brand px-2 py-1 text-[10px] font-black uppercase tracking-[0.1em] text-brandForeground;
+    @apply inline-flex items-center border border-foreground bg-brand px-2 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-brandForeground;
+  }
+
+  .muga-slide {
+    @apply relative overflow-hidden border border-foreground/55 bg-card;
+  }
+
+  .muga-panel {
+    @apply relative border border-foreground/45 bg-surface;
+  }
+
+  .muga-panel-soft {
+    @apply relative border border-foreground/35 backdrop-blur-[4px];
+    background-color: hsl(var(--color-surface) / 0.65);
+  }
+
+  .muga-float-card {
+    @apply relative border border-foreground/45 backdrop-blur-[5px];
+    background-color: hsl(var(--color-surface) / 0.72);
+  }
+
+  .muga-scifi-title {
+    font-family: "Archivo", "IBM Plex Sans", sans-serif;
+    letter-spacing: 0.02em;
+    font-weight: 300;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+
+  .muga-line-frame {
+    @apply relative border border-foreground/65;
   }
 }

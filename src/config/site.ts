@@ -10,6 +10,8 @@ export const siteConfig = {
   phoneDisplay: "+54 11 5555-1234",
   phoneHref: "tel:+541155551234",
   whatsappHref: "https://wa.me/541155551234?text=Hola%2C%20necesito%20desmalezar%20y%20limpiar%20un%20terreno",
+  instagramHref: "https://instagram.com",
+  facebookHref: "https://facebook.com",
   ctaPrimary: "Solicitar presupuesto",
   ctaSecondary: "Ver servicios"
 } as const;

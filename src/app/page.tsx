@@ -13,8 +13,8 @@ export default function HomePage() {
 
       <main className="relative">
         <HeroSection />
-        <WorkProcessSection />
         <BenefitsSection />
+        <WorkProcessSection />
         <CtaSection />
       </main>
 

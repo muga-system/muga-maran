@@ -9,9 +9,9 @@ export function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Enviar consulta por WhatsApp"
-      className="fixed bottom-4 right-4 z-30 inline-flex h-12 w-12 items-center justify-center border-2 border-foreground bg-accent text-foreground transition sm:bottom-6 sm:right-6"
+      className="fixed bottom-4 right-4 z-30 inline-flex h-12 w-12 items-center justify-center border border-foreground bg-card text-foreground transition hover:bg-accent sm:bottom-6 sm:right-6"
     >
-      <MessageCircle className="h-5 w-5" strokeWidth={2.2} aria-hidden />
+      <MessageCircle className="h-5 w-5" strokeWidth={2.1} aria-hidden />
     </a>
   );
 }
