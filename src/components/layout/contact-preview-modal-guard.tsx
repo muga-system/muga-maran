@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 type ContactKind = "phone" | "whatsapp";
 
@@ -116,32 +116,17 @@ export function ContactPreviewModalGuard() {
     };
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!isOpen) {
       return;
     }
 
     const previousOverflow = document.body.style.overflow;
-    const previousPaddingRight = document.body.style.paddingRight;
-    const previousScrollbarCompensation = document.body.style.getPropertyValue("--scrollbar-compensation");
-    const computedBodyPaddingRight = window.getComputedStyle(document.body).paddingRight;
-    const bodyPaddingRight = Number.parseFloat(computedBodyPaddingRight) || 0;
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
     document.body.style.overflow = "hidden";
-    document.body.style.setProperty("--scrollbar-compensation", `${Math.max(scrollbarWidth, 0)}px`);
-    if (scrollbarWidth > 0) {
-      document.body.style.paddingRight = `${bodyPaddingRight + scrollbarWidth}px`;
-    }
 
     return () => {
       document.body.style.overflow = previousOverflow;
-      document.body.style.paddingRight = previousPaddingRight;
-      if (previousScrollbarCompensation) {
-        document.body.style.setProperty("--scrollbar-compensation", previousScrollbarCompensation);
-      } else {
-        document.body.style.removeProperty("--scrollbar-compensation");
-      }
     };
   }, [isOpen]);
 
