@@ -4,6 +4,8 @@ import { siteConfig } from "@/config/site";
 import { navLinks } from "@/content/business-content";
 
 export function SiteFooter() {
+  const siteVersion = "1.0.0";
+
   return (
     <footer className="py-10 sm:py-14">
       <Container>
@@ -56,10 +58,30 @@ export function SiteFooter() {
               ))}
             </nav>
 
-            <div className="mt-8 grid gap-2 border-t border-foreground/20 pt-5 text-[11px] sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:text-xs">
-              <p className="text-foreground/66 sm:text-left">{siteConfig.brand}</p>
-              <p className="text-foreground/66">Trabajo directo. Coordinación clara.</p>
-              <p className="text-foreground/66 sm:text-right">© {new Date().getFullYear()}</p>
+            <div className="mt-8 grid gap-3 border-t border-foreground/20 pt-5 text-[11px] text-center sm:grid-cols-3 sm:items-center sm:text-xs">
+              <div className="flex flex-wrap items-center justify-center gap-2 text-foreground/66 sm:justify-self-start sm:justify-start">
+                <a
+                  href="https://muga.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-transparent underline-offset-[4px] transition hover:text-foreground hover:decoration-foreground/60"
+                >
+                  muga.dev
+                </a>
+                <span aria-hidden>·</span>
+                <a
+                  href="https://github.com/muga-system"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/72 underline decoration-transparent underline-offset-[4px] transition hover:text-foreground hover:decoration-foreground/60"
+                  aria-label={`Versión ${siteVersion} en GitHub`}
+                  title="Ver en GitHub"
+                >
+                  v{siteVersion}
+                </a>
+              </div>
+              <p className="text-foreground/66 sm:justify-self-center">Trabajo directo. Coordinación clara.</p>
+              <p className="text-foreground/66 sm:justify-self-end sm:text-right">{new Date().getFullYear()}</p>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import "@/app/globals.css";
+import { ContactPreviewModalGuard } from "@/components/layout/contact-preview-modal-guard";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
         {children}
+        <ContactPreviewModalGuard />
       </body>
     </html>
   );
